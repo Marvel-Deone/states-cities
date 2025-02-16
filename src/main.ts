@@ -10,6 +10,10 @@ async function bootstrap() {
     preflightContinue: false,
     optionsSuccessStatus: 204,
   });
-  await app.listen(process.env.PORT ?? 3100);
+
+  // Set global prefix for API routes (optional, but recommended)
+  app.setGlobalPrefix('api');
+
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
